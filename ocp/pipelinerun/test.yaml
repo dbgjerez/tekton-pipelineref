@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  namespace: app
+  name: test-5
+spec:
+  pipelineRef:
+    resolver: cluster
+    params:
+    - name: namespace
+      value: pipelines
+    - name: name
+      value: simple-echo-pipeline

@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: echo-hello-world
+  namespace: pipelines
+spec:
+  steps:
+    - name: echo
+      image: fedora
+      command:
+        - echo
+      args:
+        - "hello world"

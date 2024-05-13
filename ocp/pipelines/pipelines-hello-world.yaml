@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: simple-echo-pipeline
+  namespace: pipelines
+spec:
+  tasks:
+    - name: echo-task
+      taskRef:
+        resolver: cluster
+        params:
+        - name: name
+          value: echo-hello-world
+        - name: namespace
+          value: pipelines
