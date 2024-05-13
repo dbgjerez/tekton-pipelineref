@@ -2,11 +2,13 @@ apiVersion: tekton.dev/v1
 kind: PipelineRun
 metadata:
   namespace: app
-  name: test-5
+  name: test
 spec:
   pipelineRef:
     resolver: cluster
     params:
+    - name: kind
+      value: pipeline
     - name: namespace
       value: pipelines
     - name: name
