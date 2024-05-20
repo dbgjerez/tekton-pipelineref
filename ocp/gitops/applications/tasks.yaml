@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tasks
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: "https://kubernetes.default.svc"
+  source:
+    path: ocp/tasks
+    repoURL: "https://github.com/dbgjerez/tekton-pipelineref.git"
+    targetRevision: main
+  project: default
