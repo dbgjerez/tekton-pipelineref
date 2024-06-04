@@ -8,6 +8,6 @@ spec:
     - name: echo
       image: fedora
       command:
-        - cat
+        - echo
       args:
-        - msg/README.md
+        - 'hello world > msg/README.md'
