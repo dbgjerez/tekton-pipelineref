@@ -4,6 +4,8 @@ metadata:
   name: write-msg
   namespace: pipelines
 spec:
+  workspaces:
+  - name: pvc-msg
   steps:
     - name: echo
       image: fedora
