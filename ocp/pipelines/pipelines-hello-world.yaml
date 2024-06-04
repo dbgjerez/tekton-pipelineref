@@ -4,6 +4,8 @@ metadata:
   name: simple-echo-pipeline
   namespace: pipelines
 spec:
+  workspaces:
+  - name: pvc-msg
   tasks:
     - name: write
       taskRef:
@@ -13,6 +15,9 @@ spec:
           value: write-msg
         - name: namespace
           value: pipelines
+      workspaces:
+        - name: pvc-msg
+          workspace: pvc-msg
     - name: read
       taskRef:
         resolver: cluster
@@ -21,5 +26,8 @@ spec:
           value: read-msg
         - name: namespace
           value: pipelines
+      workspaces:
+        - name: pvc-msg
+          workspace: pvc-msg
       runAfter:
         - "write"

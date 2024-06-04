@@ -7,9 +7,6 @@ spec:
   workspaces:
   - name: pvc-msg
   steps:
-    - name: echo
+    - name: write
       image: fedora
-      command:
-        - echo
-      args:
-        - 'hello world > msg/README.md'
+      script: echo "Hello world!" > $(workspaces.pvc-msg.path)/README.md

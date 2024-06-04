@@ -7,9 +7,6 @@ spec:
   workspaces:
   - name: pvc-msg
   steps:
-    - name: echo
+    - name: read
       image: fedora
-      command:
-        - cat
-      args:
-        - msg/README.md
+      script: cat $(workspaces.pvc-msg.path)/README.md

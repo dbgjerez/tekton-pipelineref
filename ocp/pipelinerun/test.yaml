@@ -14,7 +14,7 @@ spec:
     - name: name
       value: simple-echo-pipeline
   workspaces:
-  - name: tekton-test
+  - name: pvc-msg
     persistentVolumeClaim:
-      claimName: mypvc
+      claimName: tekton-test
     subPath: msg
