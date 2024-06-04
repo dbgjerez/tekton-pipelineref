@@ -5,11 +5,21 @@ metadata:
   namespace: pipelines
 spec:
   tasks:
-    - name: echo-task
+    - name: write
       taskRef:
         resolver: cluster
         params:
         - name: name
-          value: echo-hello-world
+          value: write-msg
         - name: namespace
           value: pipelines
+    - name: read
+      taskRef:
+        resolver: cluster
+        params:
+        - name: name
+          value: read-msg
+        - name: namespace
+          value: pipelines
+      runAfter:
+        - "write"
